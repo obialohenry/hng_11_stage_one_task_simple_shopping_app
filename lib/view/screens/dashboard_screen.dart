@@ -45,11 +45,10 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
           fontSize: 10,
           fontWeight: FontWeight.w400,
         ),
-        items: [
+        items: const [
           BottomNavigationBarItem(
             icon: Icon(
               Icons.shopping_cart,
-              color: _currentIndex == 0 ? const Color(0xff023E8A) : const Color(0xffBECFE7),
             ),
             label: "Product",
           ),

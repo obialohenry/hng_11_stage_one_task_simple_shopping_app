@@ -6,7 +6,7 @@ import '../model/response/products_response.dart';
 
 class ShoppingViewModel {
   ProductResponse productResponse = ProductResponse();
-  List<ProductResponse> _products = [
+  final List<ProductResponse> _products = [
     ProductResponse(
         name: "Xiaomi Redmi", image: "assets/images/first_phone_item.jpg", price: "151,000"),
     ProductResponse(
@@ -30,7 +30,7 @@ class ShoppingViewModel {
         name: "Fngeen Quartz", image: "assets/images/third_wrist_watch.jpg", price: "5,000"),
   ];
   List<ProductResponse> get products => _products;
-  List<ProductResponse> _checkOutProducts = [];
+  final List<ProductResponse> _checkOutProducts = [];
   List<ProductResponse> get checkOutProducts => _checkOutProducts;
   // Future<List<ProductsResponse>?> getAllResponse() async {
   //   var input = await rootBundle.loadString("assets/json/products.json");
