@@ -33,5 +33,19 @@ This shopping app allows users to browse products and add them to their checkout
 5. Click the check out items button to complete your purchase.
 
 ## Screenshots
+[![Products Screen]
+(https://github.com/obialohenry/hng_11_stage_one_task_simple_shopping_app
+raw/main/assets/app_screen_shot/products_page.jpg),(https://github.com/obialohenry/hng_11_stage_one_task_simple_shopping_app
+raw/main/assets/app_screen_shot/product_page_with_a_added_product_to_check_out_list_message.jpg)]
+
+[![Check Out Screen]
+(https://github.com/obialohenry/hng_11_stage_one_task_simple_shopping_app
+raw/main/assets/app_screen_shot/check_out_page_with_no_product.jpg),(https://github.com/obialohenry/hng_11_stage_one_task_simple_shopping_app
+raw/main/assets/app_screen_shot/checkout_Page_with_items.jpg)]
+
+[![Success Screen]
+(https://github.com/obialohenry/hng_11_stage_one_task_simple_shopping_app
+raw/main/assets/app_screen_shot/success_page.jpg)]
+
 
 
