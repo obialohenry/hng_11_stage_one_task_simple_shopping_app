@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:hng_11_stage_one_task_simple_shopping_app/view/screens/check_out_screen.dart';
 import 'package:hng_11_stage_one_task_simple_shopping_app/view/screens/product_screen.dart';
 
+import '../../model/response/product_response.dart';
+
 class DashBoardScreen extends StatefulWidget {
   const DashBoardScreen({Key? key}) : super(key: key);
 
@@ -10,13 +12,31 @@ class DashBoardScreen extends StatefulWidget {
 }
 
 class _DashBoardScreenState extends State<DashBoardScreen> {
-  final List<Widget> _screens = [
-    ProductsScreen(),
-    CheckOutScreen(),
-  ];
+  final List<ProductResponse> _checkOutProducts = [];
+  void _addACheckOutItem(ProductResponse product) {
+    setState(() {
+      _checkOutProducts.add(product);
+    });
+  }
+
+  void _removeACheckOutItem(int productIndex) {
+    setState(() {
+      _checkOutProducts.removeAt(productIndex);
+    });
+  }
+
   int _currentIndex = 0;
   @override
   Widget build(BuildContext context) {
+    final List<Widget> screens = [
+      ProductsScreen(
+        addProduct: _addACheckOutItem,
+      ),
+      CheckOutScreen(
+        checkOutProducts: _checkOutProducts,
+        removeProductFromCheckOutList: _removeACheckOutItem,
+      ),
+    ];
     return Scaffold(
       appBar: AppBar(
         leading: const Icon(
@@ -30,7 +50,7 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
               fontSize: 20,
             )),
       ),
-      body: _screens[_currentIndex],
+      body: screens[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         showUnselectedLabels: false,
         useLegacyColorScheme: false,

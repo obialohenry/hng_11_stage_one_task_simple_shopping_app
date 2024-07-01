@@ -10,23 +10,16 @@ class SuccessScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Padding(
-        padding: const EdgeInsets.only(
-          left: 15,
-          right: 15,
-        ),
+      body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Column(
-              children: [
-                Image.asset(
-                  "assets/images/tick_mark.png",
-                  // width: 40,
-                  width: 265,
-                  height: 155,
-                ),
-              ],
+            Image.asset(
+              "assets/images/tick_mark.png",
+              // width: 40,
+              width: 265,
+              height: 155,
             ),
             const Gap(
               20,
@@ -35,7 +28,7 @@ class SuccessScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  "Successfull",
+                  "Successful",
                   style: TextStyle(
                     fontSize: 22,
                     fontWeight: FontWeight.w600,
@@ -53,14 +46,14 @@ class SuccessScreen extends StatelessWidget {
             const Gap(
               45,
             ),
-            InkWell(
+            GestureDetector(
               onTap: () {
                 Navigator.of(context).pushAndRemoveUntil(
                   // the new route
                   MaterialPageRoute(
                     builder: (BuildContext context) => const DashBoardScreen(),
                   ),
-
+        
                   // this function should return true when we're done removing routes
                   // but because we want to remove all other screens, we make it
                   // always return false

@@ -3,26 +3,38 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hng_11_stage_one_task_simple_shopping_app/view/components/gap.dart';
-import 'package:hng_11_stage_one_task_simple_shopping_app/view_model/shopping_view_model.dart';
+import '../../model/response/product_response.dart';
+import '../components/product_item.dart';
 
-import '../../model/response/products_response.dart';
 
-class ProductsScreen extends StatefulWidget {
-  ProductsScreen({Key? key}) : super(key: key);
+class ProductsScreen extends StatelessWidget {
+  ProductsScreen({Key? key, required this.addProduct}) : super(key: key);
 
-  @override
-  State<ProductsScreen> createState() => _ProductsScreenState();
-}
+  final void Function(ProductResponse) addProduct;
 
-class _ProductsScreenState extends State<ProductsScreen> {
-  ShoppingViewModel shoppingViewModel = ShoppingViewModel();
-  // @override
-  // void initState() {
-  //   // TODO: implement initState
-  //   setState(() {
-  //     shoppingViewModel.getAllResponse();
-  //   });
-  // }
+  final List<ProductResponse> products = [
+    ProductResponse(
+        name: "Xiaomi Redmi", image: "assets/images/first_phone_item.jpg", price: "151,000"),
+    ProductResponse(
+        name: "Sneakers Shoe", image: "assets/images/first_shoe_item.jpg", price: "13,500"),
+    ProductResponse(
+        name: "T900 Watch", image: "assets/images/first_wrist_watch.jpg", price: "11,541"),
+    ProductResponse(
+        name: "Yeezy Casual", image: "assets/images/fourth_shoe_item.jpg", price: "14,373"),
+    ProductResponse(name: "Itel TV", image: "assets/images/itel_tv.jpg", price: "77,999"),
+    ProductResponse(
+        name: "Tecno POP 8", image: "assets/images/second_phone_item.jpg", price: "101,875"),
+    ProductResponse(
+        name: "Social Man", image: "assets/images/second_shoe_item.jpg", price: "13,500"),
+    ProductResponse(
+        name: "Itel Watch", image: "assets/images/second_wrist_watch.jpg", price: "15,000"),
+    ProductResponse(
+        name: "Xiaomi A3", image: "assets/images/third_phone_item.jpg", price: "110,500"),
+    ProductResponse(
+        name: "Men's Shoe", image: "assets/images/third_shoe_item.jpg", price: "14,500"),
+    ProductResponse(
+        name: "Fngeen Quartz", image: "assets/images/third_wrist_watch.jpg", price: "5,000"),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -37,27 +49,33 @@ class _ProductsScreenState extends State<ProductsScreen> {
               child: ListView.builder(
                   physics: const NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
-                  itemCount: shoppingViewModel.products.length,
+                  itemCount: products.length,
                   itemBuilder: (context, index) {
-                    String imageUrl = shoppingViewModel.products[index].image ?? "";
-                    String name = shoppingViewModel.products[index].name ?? "";
-                    String price = "₦${shoppingViewModel.products[index].price ?? ""}";
+                    String imageUrl = products[index].image ?? "";
+                    String name = products[index].name ?? "";
+                    String price = "₦${products[index].price ?? ""}";
+                    //  debugPrintStack(
+                    //         label: " ${shoppingViewModel.addACheckOutItem(shoppingViewModel.products[index])}");
                     return ProductItem(
                       imageUrl: imageUrl,
                       name: name,
                       price: price,
                       onPress: () {
-                        setState(() {
-                          shoppingViewModel.addACheckOutItem(shoppingViewModel.products[index]);
-                        });
+                        addProduct(products[index]);
+                        // debugPrintStack(
+                        //     label: "items added to cart: ${shoppingViewModel.checkOutProducts}");
 
                         final snackBar = SnackBar(
                           backgroundColor: Colors.green,
-                          content: Text(
-                              "Added ${shoppingViewModel.products[index].name} to check out list"),
+                          content: Text("Added ${products[index].name} to check out list"),
                         );
                         ScaffoldMessenger.of(context).showSnackBar(snackBar);
                       },
+                      trailingIcon: const Icon(
+                        Icons.add_shopping_cart,
+                        color: Color(0xff023E8A),
+                        size: 20,
+                      ),
                     );
                   }),
             )),
@@ -66,60 +84,3 @@ class _ProductsScreenState extends State<ProductsScreen> {
   }
 }
 
-class ProductItem extends StatelessWidget {
-  ProductItem({
-    super.key,
-    required this.imageUrl,
-    required this.name,
-    required this.price,
-    required this.onPress,
-  });
-
-  final String imageUrl;
-  final String name;
-  final String price;
-  VoidCallback onPress;
-  @override
-  Widget build(BuildContext context) {
-    return ListTile(
-      leading: SizedBox(
-        width: 150,
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Image.asset(
-              imageUrl,
-              width: 30,
-              height: 30,
-            ),
-            const Gap(10),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  name,
-                  style: const TextStyle(
-                      color: Colors.black, fontSize: 15, fontWeight: FontWeight.w300),
-                ),
-                const Gap(5),
-                Text(
-                  price,
-                  style: const TextStyle(
-                      color: Colors.black, fontSize: 15, fontWeight: FontWeight.w300),
-                ),
-              ],
-            )
-          ],
-        ),
-      ),
-      trailing: InkWell(
-        onTap: onPress,
-        child: const Icon(
-          Icons.add_shopping_cart,
-          color: const Color(0xff023E8A),
-          size: 20,
-        ),
-      ),
-    );
-  }
-}
