@@ -1,3 +1,4 @@
+
 # hng_11_stage_one_task_simple_shopping_app
 
 ## Description
@@ -33,19 +34,13 @@ This shopping app allows users to browse products and add them to their checkout
 5. Click the check out items button to complete your purchase.
 
 ## Screenshots
-[![Products Screen]
-(https://github.com/obialohenry/hng_11_stage_one_task_simple_shopping_app
-raw/main/assets/app_screen_shot/products_page.jpg),(https://github.com/obialohenry/hng_11_stage_one_task_simple_shopping_app
-raw/main/assets/app_screen_shot/product_page_with_a_added_product_to_check_out_list_message.jpg)]
+![products_page](https://github.com/obialohenry/hng_11_stage_one_task_simple_shopping_app/assets/108239673/a191e854-a794-4cff-9fbc-5da27876e4ac)
+![product_page_with_a_added_product_to_check_out_list_message](https://github.com/obialohenry/hng_11_stage_one_task_simple_shopping_app/assets/108239673/89365753-1ce3-4fed-95f1-6497bdb908ca)
 
-[![Check Out Screen]
-(https://github.com/obialohenry/hng_11_stage_one_task_simple_shopping_app
-raw/main/assets/app_screen_shot/check_out_page_with_no_product.jpg),(https://github.com/obialohenry/hng_11_stage_one_task_simple_shopping_app
-raw/main/assets/app_screen_shot/checkout_Page_with_items.jpg)]
+![check_out_page_with_no_product](https://github.com/obialohenry/hng_11_stage_one_task_simple_shopping_app/assets/108239673/c8457e17-8928-4dc7-bec8-9749b674ea2b)
+![checkout_Page_with_items](https://github.com/obialohenry/hng_11_stage_one_task_simple_shopping_app/assets/108239673/968af9ea-4d02-4795-a33c-4fc3399dafde)
+![success_page](https://github.com/obialohenry/hng_11_stage_one_task_simple_shopping_app/assets/108239673/d47b7aef-a3b9-47cc-8e74-8ab81f3a72a5)
 
-[![Success Screen]
-(https://github.com/obialohenry/hng_11_stage_one_task_simple_shopping_app
-raw/main/assets/app_screen_shot/success_page.jpg)]
 
 
 
